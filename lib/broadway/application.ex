@@ -3,7 +3,7 @@ defmodule Broadway.Application do
   use Application
 
   def start(_type, _args) do
-    MyApp.Instrumenter.setup()
+    # MyApp.Instrumenter.setup()
     Supervisor.start_link([Broadway.TermStorage], strategy: :one_for_one, name: __MODULE__)
   end
 end
