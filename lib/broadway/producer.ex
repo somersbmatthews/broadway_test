@@ -122,6 +122,7 @@ defmodule Broadway.Producer do
     %{module: module, module_state: module_state} = state
 
     message
+    |> Map.put(time, monotonic_time())
     |> module.handle_call(from, module_state)
     |> case do
       {:reply, reply, events, new_module_state} ->

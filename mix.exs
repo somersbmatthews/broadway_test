@@ -27,7 +27,8 @@ defmodule Broadway.MixProject do
   defp deps do
     [
       {:gen_stage, "~> 0.14"},
-      {:ex_doc, ">= 0.19.0", only: :docs}
+      {:ex_doc, ">= 0.19.0", only: :docs},
+      {:telemetry, "~> 0.4.0"}
     ]
   end
 
