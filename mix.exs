@@ -33,47 +33,47 @@ defmodule Broadway.MixProject do
   end
 
   defp docs do
-    [
-      main: "Broadway",
-      source_ref: "v#{@version}",
-      source_url: "https://github.com/plataformatec/broadway",
-      extra_section: "Guides",
-      extras: [
-        "guides/examples/Amazon SQS.md",
-        "guides/examples/Google Cloud PubSub.md",
-        "guides/examples/RabbitMQ.md",
-        "guides/examples/Custom Producers.md",
-        "guides/internals/Architecture.md"
-      ],
-      groups_for_extras: [
-        Examples: Path.wildcard("guides/examples/*.md"),
-        Internals: Path.wildcard("guides/internals/*.md")
-      ],
-      groups_for_modules: [
-        # Ungrouped Modules:
-        #
-        # Broadway
-        # Broadway.Message
-        # Broadway.BatchInfo
+    # [
+    #   main: "Broadway",
+    #   source_ref: "v#{@version}",
+    #   source_url: "https://github.com/plataformatec/broadway",
+    #   extra_section: "Guides",
+    #   extras: [
+    #     "guides/examples/Amazon SQS.md",
+    #     "guides/examples/Google Cloud PubSub.md",
+    #     "guides/examples/RabbitMQ.md",
+    #     "guides/examples/Custom Producers.md",
+    #     "guides/internals/Architecture.md"
+    #   ],
+    #   groups_for_extras: [
+    #     Examples: Path.wildcard("guides/examples/*.md"),
+    #     Internals: Path.wildcard("guides/internals/*.md")
+    #   ],
+    #   groups_for_modules: [
+    #     # Ungrouped Modules:
+    #     #
+    #     # Broadway
+    #     # Broadway.Message
+    #     # Broadway.BatchInfo
 
-        Acknowledgement: [
-          Broadway.Acknowledger,
-          Broadway.CallerAcknowledger,
-          Broadway.NoopAcknowledger
-        ],
-        Producers: [
-          Broadway.DummyProducer,
-          Broadway.TermStorage
-        ]
-      ]
-    ]
+    #     Acknowledgement: [
+    #       Broadway.Acknowledger,
+    #       Broadway.CallerAcknowledger,
+    #       Broadway.NoopAcknowledger
+    #     ],
+    #     Producers: [
+    #       Broadway.DummyProducer,
+    #       Broadway.TermStorage
+    #     ]
+    #   ]
+    # ]
   end
 
   defp package do
-    %{
-      licenses: ["Apache-2.0"],
-      maintainers: ["Marlus Saraiva", "José Valim"],
-      links: %{"GitHub" => "https://github.com/plataformatec/broadway"}
-    }
+    # %{
+    #   licenses: ["Apache-2.0"],
+    #   maintainers: ["Marlus Saraiva", "José Valim"],
+    #   links: %{"GitHub" => "https://github.com/plataformatec/broadway"}
+    # }
   end
 end
