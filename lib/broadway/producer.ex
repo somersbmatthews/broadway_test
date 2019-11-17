@@ -115,7 +115,7 @@ defmodule Broadway.Producer do
 
   @impl true
   def handle_call({__MODULE__, :push_messages, messages}, _from, state) do
-    Broadway.Telemetry.tracker("messages dispatched in producer, handle_call in producer.ex", message)
+    Broadway.Telemetry.tracker("messages dispatched in producer, handle_call in producer.ex", messages)
     {:reply, :ok, messages, state}
   end
 
