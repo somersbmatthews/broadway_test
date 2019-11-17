@@ -65,6 +65,7 @@ defmodule Broadway.Processor do
   end
 
   defp handle_messages([message | messages], successful, failed, state) do
+    Broadway.Telemetry.tracker("message received in processor, handle_messages in processor.ex", messages)
     %{
       module: module,
       context: context,

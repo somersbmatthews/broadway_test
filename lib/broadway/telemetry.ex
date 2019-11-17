@@ -17,6 +17,13 @@ defmodule Broadway.Telemetry do
   alias Broadway.Message
   alias Broadway.Telemetry.Pipeline
 
+  def tracker(location, message) do
+    time = System.monotonic_time(:microsecond)
+    %{location, time, message}
+    Logger.info( "The following message #{message} was at the location #{location} 
+      at this time #{time}"
+  end
+
   def consumer_receipt(%Pipeline{} = pipeline) do
     %Pipeline{message: message, metadata: metadata} = pipeline
 

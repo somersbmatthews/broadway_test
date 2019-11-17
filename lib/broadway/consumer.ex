@@ -34,7 +34,7 @@ defmodule Broadway.Consumer do
   def handle_events(events, _from, state) do
     [{messages, batch_info}] = events
     %Broadway.BatchInfo{batcher: batcher, size: size} = batch_info
-
+    
     {successful_messages, failed_messages, returned} =
       handle_batch(batcher, messages, batch_info, state)
 
@@ -67,6 +67,7 @@ defmodule Broadway.Consumer do
   end
 
   defp handle_batch(batcher, messages, batch_info, state) do
+    Broadway.Telemetry.tracker("messages received in consumer, handle_batch in consumer.ex", messages)
     %{module: module, context: context} = state
 
     try do

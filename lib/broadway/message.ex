@@ -44,7 +44,7 @@ defmodule Broadway.Message do
   in order to replace the data with the new processed data.
   """
   @spec update_data(message :: Message.t(), fun :: (term -> term)) :: Message.t()
-  def update_data(%Message{} = message, fun) when is_function(fun, 1) do
+  def update_data(%Message{} = message, fun) when is_function(fun, 1) do    
     %Message{message | data: fun.(message.data)}
   end
 

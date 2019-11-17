@@ -115,14 +115,14 @@ defmodule Broadway.Producer do
 
   @impl true
   def handle_call({__MODULE__, :push_messages, messages}, _from, state) do
+    Broadway.Telemetry.tracker("messages dispatched in producer, handle_call in producer.ex", message)
     {:reply, :ok, messages, state}
   end
 
   def handle_call(message, from, state) do
     %{module: module, module_state: module_state} = state
-
+    Broadway.Telemetry.tracker("message dispatched in producer, handle_call in producer.ex", message)
     message
-    |> Map.put(:time, System.monotonic_time(:microsecond))
     |> module.handle_call(from, module_state)
     |> case do
       {:reply, reply, events, new_module_state} ->
@@ -154,7 +154,7 @@ defmodule Broadway.Producer do
 
   def handle_cast(message, state) do
     %{module: module, module_state: module_state} = state
-
+    Broadway.Telemetry.tracker("message received in producer, handle_call in producer.ex", message)
     message
     |> module.handle_cast(module_state)
     |> handle_no_reply(state)
