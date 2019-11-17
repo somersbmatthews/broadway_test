@@ -19,7 +19,7 @@ defmodule Broadway.Telemetry do
 
   def tracker(location, message) do
     time = System.monotonic_time(:microsecond)
-    %{location, time, message}
+    %{location: location, time: time, message: message}
     Logger.info( "The following message #{message} was at the location #{location} 
       at this time #{time}")
   end
