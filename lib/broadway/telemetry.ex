@@ -21,7 +21,7 @@ defmodule Broadway.Telemetry do
     time = System.monotonic_time(:microsecond)
     %{location, time, message}
     Logger.info( "The following message #{message} was at the location #{location} 
-      at this time #{time}"
+      at this time #{time}")
   end
 
   def consumer_receipt(%Pipeline{} = pipeline) do
