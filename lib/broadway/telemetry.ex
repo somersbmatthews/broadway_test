@@ -22,7 +22,7 @@ defmodule Broadway.Telemetry do
   def tracker(location, message) do
     time = System.monotonic_time(:microsecond)
     
-    Logger.info(inspect(%{location: location, time: time, message: message}))
+    Logger.info(inspect(%{location => location, time => time, message => message}))
   end
 
   def consumer_receipt(%Pipeline{} = pipeline) do
