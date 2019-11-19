@@ -6,6 +6,8 @@ defmodule Broadway.Telemetry do
     - `[:broadway, :message, :consumer_receipt, :success]`
   """
 
+  require Logger
+
   defmodule Pipeline do
     defstruct [
       :message,
@@ -19,9 +21,8 @@ defmodule Broadway.Telemetry do
 
   def tracker(location, message) do
     time = System.monotonic_time(:microsecond)
-    %{location: location, time: time, message: message}
-    Logger.info( "The following message #{message} was at the location #{location} 
-      at this time #{time}")
+    
+    Logger.info(inspect(%{location: location, time: time, message: message}))
   end
 
   def consumer_receipt(%Pipeline{} = pipeline) do
