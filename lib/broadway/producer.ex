@@ -37,6 +37,7 @@ defmodule Broadway.Producer do
 
   @spec push_messages(GenServer.server(), [Message.t()]) :: :ok
   def push_messages(producer, messages) do
+    Broadway.Telemetry.tracker("messages received in producer, push_messages() in producer.ex", messages)
     GenStage.call(producer, {__MODULE__, :push_messages, messages})
   end
 

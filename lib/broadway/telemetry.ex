@@ -18,7 +18,6 @@ defmodule Broadway.Telemetry do
 
   alias Broadway.Message
   alias Broadway.Telemetry.Pipeline
-
   def tracker(location, message) do
     time = System.monotonic_time(:microsecond)
     
